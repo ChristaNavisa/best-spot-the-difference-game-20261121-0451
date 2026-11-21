@@ -6,10 +6,11 @@
 // MAKEFUN_OUTPUT_DIR stands in for /output. Node 22, standard library only.
 
 import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-game.ts';
 
-const repoRoot = process.cwd();
+const repoRoot = dirname(fileURLToPath(import.meta.url));
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
 function copyTree(name: string): void {
