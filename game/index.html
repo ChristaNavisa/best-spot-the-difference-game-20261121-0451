@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three Little Worlds — Spot the Difference</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">&#9678;</span>
+      <div>
+        <h1>Three Little Worlds</h1>
+        <p class="tagline">Spot the difference &middot; three hand-drawn scenes, one sharp eye</p>
+      </div>
+    </div>
+    <div class="hud" id="hud">
+      <div class="hud-box level-box">
+        <span class="hud-label">Level</span>
+        <span class="hud-value" id="hud-level">1 / 3</span>
+        <span class="hud-sub" id="hud-level-name">Morning Garden</span>
+      </div>
+      <div class="hud-box counter-box">
+        <span class="hud-label">Still hidden</span>
+        <span class="hud-value big" id="hud-remaining">7</span>
+        <span class="hud-sub">differences left</span>
+      </div>
+      <div class="hud-box timer-box">
+        <span class="hud-label">Time left</span>
+        <span class="hud-value" id="hud-time">2:30</span>
+        <div class="timer-bar"><div id="timer-fill"></div></div>
+      </div>
+      <div class="hud-box score-box">
+        <span class="hud-label">Score</span>
+        <span class="hud-value" id="hud-score">0</span>
+        <span class="hud-sub" id="hud-combo"></span>
+      </div>
+      <div class="hud-box hint-box">
+        <span class="hud-label">Hints</span>
+        <button id="btn-hint" type="button" title="Hint (H)">&#128161; <span id="hud-hints">3</span></button>
+      </div>
+      <button id="btn-mute" type="button" title="Sound on/off (M)">&#128266;</button>
+      <button id="btn-menu" type="button" title="Back to menu (Esc)">&#9776;</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <div class="panels">
+      <figure class="panel">
+        <figcaption><span class="panel-tag">A</span> Original</figcaption>
+        <canvas id="canvas-left" width="1200" height="800"></canvas>
+      </figure>
+      <div class="versus" aria-hidden="true">VS</div>
+      <figure class="panel">
+        <figcaption><span class="panel-tag">B</span> Almost the same&hellip;</figcaption>
+        <canvas id="canvas-right" width="1200" height="800"></canvas>
+      </figure>
+    </div>
+    <div id="toast" class="toast" hidden></div>
+  </main>
+
+  <footer id="bottombar">
+    <p class="keys">Click a difference on either picture &middot; <kbd>H</kbd> hint &middot; <kbd>R</kbd> restart level &middot; <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> switch level &middot; <kbd>M</kbd> sound</p>
+    <p class="progress" id="level-dots"></p>
+  </footer>
+
+  <div id="overlay" class="overlay" hidden>
+    <div class="overlay-card" id="overlay-card"></div>
+  </div>
+</div>
+
+<script src="src/audio.js"></script>
+<script src="src/scenes.js"></script>
+<script src="src/engine.js"></script>
+<script src="src/render.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
